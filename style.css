@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited, a:hover, a:active{
+    color: navajowhite;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+body {
+    font-family: Tahoma;
+    font-size: 20px;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url('public/img/welcome_page.png');
+    background-repeat: no-repeat;
+
+    background-size: cover;
+}
+
+.rectangle {
+    width:20em;
+    height:30em;
+    background: transparent linear-gradient(0deg, #867F7F 0%, #434040 100%) 0% 0% no-repeat padding-box;
+    position:absolute;
+    top:100px;
+    transform: translateX(-50%);
+    left: 50%;
+    padding: 15px 35px;
+
+    border-radius: 100px;
+}
+
+
+
+p {
+    color: white;
+}
+.blurred {
+    filter: blur(3px);
+}
+
+.text-absolute {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.text-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.text-white {
+    color: white;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.f-72 {
+    margin-left: 1em;
+    font-size: 4.5em;
+}
+.f-48 {
+    margin-left: 2em;
+    font-size: 48px;
+}
+
+.button-absolute {
+    position: absolute;
+    bottom: 50px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.button-fixed1 {
+    position: fixed;
+    bottom: 13em;
+    transform: translateX(-50%);
+    left: 50%;
+}
+.button-fixed2 {
+    position: fixed;
+    bottom: 8em;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.btn1 {
+    display: inline-block;
+    text-align: center;
+    background: transparent radial-gradient(closest-side at 50% 50%, #0E151C 0%, #5E6267 100%) 0 0 no-repeat padding-box;
+
+    color: white;
+    text-decoration: none;
+
+    padding: 15px 35px;
+
+    border-radius: 100px;
+}
+
+.btn2 {
+    display: inline-block;
+    text-align: center;
+    background: transparent radial-gradient(closest-side at 50% 50%, #000000 0%, #545454 100%) 0% 0% no-repeat padding-box;
+
+    color: white;
+    text-decoration: none;
+
+    padding: 1.25em 4.5em;
+
+    border-radius: 5em;
+}
+
+.btn:hover {
+    border-radius: 0;
+}
+
+.only-phone {
+    display: block;
+}
