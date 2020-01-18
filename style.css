@@ -32,13 +32,13 @@ body {
     width:20em;
     height:30em;
     background: transparent linear-gradient(0deg, #867F7F 0%, #434040 100%) 0% 0% no-repeat padding-box;
-    position:absolute;
     top:100px;
     transform: translateX(-50%);
     left: 50%;
     padding: 15px 35px;
 
     border-radius: 100px;
+    position: fixed;
 }
 
 
@@ -56,9 +56,13 @@ p {
     top: 0;
 }
 .text-fixed {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
+}
+.text-center{
+    text-align: center;
+    margin-top: 20px;
 }
 
 .text-white {
@@ -80,22 +84,27 @@ p {
 
 .button-absolute {
     position: absolute;
-    bottom: 50px;
-    transform: translateX(-50%);
+    bottom: 150px;
+    transform: translate(-50%, -50%);
     left: 50%;
 }
 
 .button-fixed1 {
-    position: fixed;
-    bottom: 13em;
-    transform: translateX(-50%);
-    left: 50%;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 150px;
 }
 .button-fixed2 {
-    position: fixed;
-    bottom: 8em;
-    transform: translateX(-50%);
-    left: 50%;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.invitation{
+    margin-left: 50%;
+    margin-top: 30px;
+    font-family: Arial;
+    font-size: 20px;
+
 }
 
 .btn1 {
@@ -106,20 +115,20 @@ p {
     color: white;
     text-decoration: none;
 
-    padding: 15px 35px;
+    padding: 25px 70px;
 
     border-radius: 100px;
 }
 
 .btn2 {
-    display: inline-block;
+    display: block;
     text-align: center;
     background: transparent radial-gradient(closest-side at 50% 50%, #000000 0%, #545454 100%) 0% 0% no-repeat padding-box;
 
     color: white;
     text-decoration: none;
 
-    padding: 1.25em 4.5em;
+    padding: 1.25em 1em;
 
     border-radius: 5em;
 }
@@ -130,4 +139,87 @@ p {
 
 .only-phone {
     display: block;
+}
+
+.box {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.box .header {
+    float: right;
+    padding: 20px;
+    width: 100%;
+}
+
+.box .header .user {
+    float: left;
+    margin-right: 100px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+.box .header .edit-btn {
+    float: left;
+}
+.box .header .edit-btn a {
+    display: block;
+    background: rgba(100, 100, 100, 0.6);
+    padding: 10px 50px;
+    text-decoration: none;
+    color: black;
+}
+
+.float-right {
+    float: right;
+}
+.content {
+    padding: 25px;
+    background: #5E6267;
+    overflow: auto;
+}
+.content .menu {
+    width: 30%;
+    float: left;
+}
+
+.menu ul {
+}
+.menu ul li {
+    margin: 30px auto;
+    list-style-type: none;
+}
+
+.menu svg{
+    fill: white;
+}
+.menu ul li a{
+    border-radius: 25px;
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+    margin: 0 auto;
+    text-decoration: none;
+    padding: 15px 25px 15px 10px;
+    background: transparent radial-gradient(closest-side at 50% 50%, #000000 0%, #545454 100%) 0% 0% no-repeat padding-box;;
+    color: white;
+}
+.menu ul li a.active{
+    background: transparent;
+
+}
+
+.menu a svg {
+    margin-bottom: -4px;
+    margin-right: 15px;
+}
+
+.content .map {
+    width: 70%;
+    float: left;
+}
+
+.content .map iframe {
+    border-radius: 50px;
 }
