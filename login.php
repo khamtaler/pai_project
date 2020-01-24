@@ -4,16 +4,23 @@
 session_start();
 require 'database.php';
 
+if(isset($_SESSION['user_id'])){
+    header('Location: profile.php');
+    exit;
+}
 //If the POST var "login" exists (our submit button), then we can
 //assume that the user has submitted the login form.
-if(isset($_GET['login'])){
+if(isset($_POST['login'])){
 
     //Retrieve the field values from our login form.
-    $username = !empty($_GET['username']) ? trim($_GET['username']) : null;
-    $passwordAttempt = !empty($_GET['password']) ? trim($_GET['password']) : null;
+    $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+    $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
     //Retrieve the user account information for the given username.
-    $sql = "SELECT id, login, password FROM user WHERE login = :username";
+    $sql = "SELECT user.id, user.login, user.password, roles.id AS roleId, 
+roles.name AS roleName FROM user LEFT JOIN user_roles
+ ON user.id = user_roles.user_id LEFT JOIN roles 
+ ON user_roles.roles_id = roles.id WHERE user.id = 1;";
     $stmt = $pdo->prepare($sql);
 
     //Bind value.
@@ -46,7 +53,7 @@ if(isset($_GET['login'])){
             $_SESSION['logged_in'] = time();
 
             //Redirect to our protected page, which we called home.php
-            header('Location: profile.html');
+            header('Location: profile.php');
             exit;
 
         } else{
@@ -66,19 +73,12 @@ if(isset($_GET['login'])){
 </head>
 <body>
 <h1>Login</h1>
-<form action="login.php" method="get">
+<form action="login.php" method="POST">
     <label for="username">Username</label>
     <input type="text" id="username" name="username"><br>
     <label for="password">Password</label>
-    <input type="text" id="password" name="password"><br>
+    <input type="password" id="password" name="password"><br>
     <input type="submit" name="login" value="Login">
 </form>
-<?php
-if($loginError) {
-    ?>
-    <p></p>
-<?php
-}
-?>
 </body>
 </html>

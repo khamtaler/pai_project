@@ -29,9 +29,9 @@ window.onload=function () {
     editButton.addEventListener('click', function () {
         editModal.style.display = "block";
     });
-    closeButton.addEventListener('click', function () {
-        editModal.style.display = "none";
-    });
+    // closeButton.addEventListener('click', function () {
+    //     editModal.style.display = "none";
+    // });
 
 }
 

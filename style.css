@@ -98,7 +98,7 @@ p {
 }
 
 .button-fixed1 {
-    width: 400px;
+    width: 300px;
     margin: 0 auto;
     margin-top: 150px;
 }
@@ -131,7 +131,7 @@ p {
 .btn2 {
     display: block;
     text-align: center;
-    background: transparent radial-gradient(closest-side at 50% 50%, #000000 0%, #545454 100%) 0% 0% no-repeat padding-box;
+    background: transparent radial-gradient(closest-side at 50% 50%, #000000 0%, #545454 100%) 0 0 no-repeat padding-box;
 
     color: white;
     text-decoration: none;
@@ -298,10 +298,10 @@ p {
 }
 
 .save_button_spec{
-    position: absolute;
-    margin-left: 50%;
-    margin-top: 420px;
-    transform: translate(-50%, -50%);
+    /*position: absolute;*/
+    /*margin-left: 50%;*/
+    /*margin-top: 420px;*/
+    /*transform: translate(-50%, -50%);*/
 }
 
 .img_float{

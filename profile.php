@@ -1,7 +1,28 @@
+<?php
+
+require 'database.php';
+
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+    exit;
+}
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$personal = "SELECT * FROM personal WHERE user_id=".$_SESSION['user_id'];
+$stmt= $pdo->prepare($personal);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <html>
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="possible.js" type="text/javascript"></script>
     <script src="menu.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -22,6 +43,9 @@
                     </div>
                     <div class="edit-btn1" id="edit-btn1">
                         <a href="#">Chat</a>
+                    </div>
+                    <div class="edit-btn1" id="logout">
+                        <a href="#">Wyloguj</a>
                     </div>
                 </div>
             </div>
@@ -91,31 +115,33 @@
         </div>
     </div>
 </div>
+
 <div id="edit-modal" class="modal">
     <p class="text-white menu_edit">
         Edit profile:
     </p>
-    <form class="text-white form_edit" >
+    <form action="changes.php" class="text-white form_edit" id="changes_form" method="post" >
         Imie:<br>
-        <input type="text" class="form_mode" name="imie" value="imie" required><br>
+        <input type="text" class="form_mode" name="imie" value="<?php echo $result['name']?>" required><br>
         Nazwisko:<br>
         <input type="text" class="form_mode" name="nazwisko" value="nazwisko" required><br>
         Email:<br>
         <input type="email" class="form_mode" name="email" value="email@email.com" required><br>
         Data urodzenia:<br>
-        <input type="date" class="form_mode" name="data urodzenia" required><br>
+        <input type="date" class="form_mode" name="data_urodzenia" value="<?php echo $result['date_of_birth']?>" required><br>
         adres:<br>
         <input type="text" class="form_mode" name="adres" value="ul. Szczepanska 2a" ><br>
         haslo:<br>
-        <input type="password" class="form_mode" name="haslo" value="haslo" required ><br>
+        <input type="password" class="form_mode" name="haslo" value=""  ><br>
+        <input type="submit" value="Save changes" name="submit" id="edit-close" class="save_button_spec" >
     </form>
+    <p id="changes_result"></p>
     <p>
-        <img src = "http://localhost:63342/public/img/strongman.jpeg" class="float-right resize">
+        <img src = "public/img/strongman.jpeg" class="float-right resize">
     </p>
-    <p id="edit-close" class="save_button_spec">
-        Save changes
-    </p>
+
 
 </div>
 </body>
+<script src="ajax_changes.js"></script>
 </html>

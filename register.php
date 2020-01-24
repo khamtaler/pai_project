@@ -1,11 +1,20 @@
 <?php
 require 'database.php';
+
+
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header('Location: profile.php');
+    exit;
+}
+
+
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-if(isset($_GET['submit'])){
-    $login = $_GET['login'];
-    $password = $_GET['password'];
+if(isset($_POST['submit'])){
+    $login = $_POST['login'];
+    $password = $_POST['password'];
     $data = [
         'login' => $login,
         'password' => md5($password)
@@ -17,7 +26,7 @@ if(isset($_GET['submit'])){
 } else {
 ?>
 
-    <form method="GET" action="register.php">
+    <form method="POST" action="register.php">
         <input name="login" type="text">
         <input name="password" type="password">
         <input name="submit" type="submit" value="Zarejestruj">
